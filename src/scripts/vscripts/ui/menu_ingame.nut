@@ -27,6 +27,7 @@ struct
 	int objectiveStringIndex
 	bool SP_displayObjectiveOnClose
 	var settingsHeader
+	var connectHeader
 	var faqButton
 	int titanHeaderIndex
 	var titanHeader
@@ -256,6 +257,17 @@ void function InitInGameSPMenu()
 		Hud_AddEventHandler( videoButton, UIE_CLICK, AdvanceMenuEventHandler( GetMenu( "VideoMenu" ) ) )
 	#endif
 
+	// HINTS Menu
+	headerIndex++
+	buttonIndex = 0
+	var connectHeader = AddComboButtonHeader( comboStruct, headerIndex, "Connect" )
+	var hintButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Connect to NS" )
+	Hud_AddEventHandler( hintButton, UIE_CLICK, ConnectToNS  )
+	// var patreonButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Patreon" )
+	// Hud_AddEventHandler( patreonButton, UIE_CLICK, OpenPatreonLink  )
+	// var helmetResetButton = AddComboButton( comboStruct, headerIndex, buttonIndex++, "Reset Helmets" )
+	// Hud_AddEventHandler( helmetResetButton, UIE_CLICK, ResetHelmets  )
+
 	array<var> orderedButtons
 
 	var changeDifficultyBtn = Hud_GetChild( menu, "BtnChangeDifficulty" )
@@ -292,6 +304,29 @@ void function InitInGameSPMenu()
 	AddMenuFooterOption( menu, BUTTON_B, "#B_BUTTON_CLOSE", "#CLOSE" )
 }
 
+void function OpenHintsLink( var button )
+{
+	string link = GetActiveLevel()
+	if ( RandomIntRange(0, 1000) != 42 )
+		LaunchExternalWebBrowser( "https://taskinoz.com/titanfall-randomizer/#"+link, WEBBROWSER_FLAG_MUTEGAME )
+	else
+		LaunchExternalWebBrowser( "https://www.youtube.com/watch?v=dQw4w9WgXcQ", WEBBROWSER_FLAG_MUTEGAME )
+}
+
+void function ConnectToNS( var button )
+{
+	ClientCommand("sv_cheats 1;connect 192.168.50.228:37015")
+}
+
+void function OpenPatreonLink( var button )
+{
+	LaunchExternalWebBrowser( "https://www.patreon.com/taskinoz", WEBBROWSER_FLAG_MUTEGAME )
+}
+
+void function ResetHelmets( var button )
+{
+	ResetCollectiblesProgress_All()
+}
 
 void function OnOpenInGameSPMenu()
 {
