@@ -38,8 +38,7 @@ jobs:
           mv *.vpk ps4
           wget -c $(curl -s https://api.github.com/repos/taskinoz/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
           tar -xf linux-x64.tar.gz
-          chmod +x ./build.sh
-          ./build.sh prod
+          sh build.sh prod
       - name: Create Release
         uses: ncipollo/release-action@v1.8.6
         with:
