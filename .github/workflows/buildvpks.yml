@@ -36,6 +36,7 @@ jobs:
           wget -O ./ps4/englishclient_mp_common.bsp.pak000_dir.vpk ${{ secrets.LOCATIONS }}/ps4/patch/englishclient_mp_common.bsp.pak000_dir.vpk
           wget -c $(curl -s https://api.github.com/repos/taskinoz/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
           tar -xf linux-x64.tar.gz
+          chmod +x ./RSPNVPK
           sh build.sh prod
       - name: Create Release
         uses: ncipollo/release-action@v1.8.6
