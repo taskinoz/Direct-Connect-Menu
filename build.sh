@@ -12,7 +12,7 @@ then
     ## PS4
     cp ./ps4/*.vpk ./
     wait
-    RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
+    ./RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
     wait
     # make dir ignore if exists
     mkdir -p ./CUSA04013/vpk_ps4
@@ -22,7 +22,7 @@ then
     ## PC
     cp ./pc/*.vpk ./
     wait
-    RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
+    ./RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
     wait
     # make dir ignore if exists
     mkdir -p ./Direct-Connect-PC
@@ -31,7 +31,7 @@ then
 
 else
     ## Run on Dev
-    cp ./ps4dir/*.vpk ./
+    cp ./ps4/*.vpk ./
     wait
     RSPNVPK englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
 
