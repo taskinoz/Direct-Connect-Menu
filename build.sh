@@ -7,15 +7,14 @@
 
 ## Debug
 
-ls ./
-ls ./ps4
-ls ./pc
-
 if [ "$1" = "prod" ]
 then
     ## Run on Prod
     ## PS4
     cp ./ps4/*.vpk ./
+    echo "Copying PS4 VPKs"
+    ls ./
+    echo "----------------"
     wait
     ./RSPNVPK ./englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
     wait
@@ -29,6 +28,9 @@ then
 
     ## PC
     cp ./pc/*.vpk ./
+    echo "Copying PC VPKs"
+    ls ./
+    echo "----------------"
     wait
     ./RSPNVPK ./englishclient_frontend.bsp.pak000_dir.vpk -d ./src -s
     wait
