@@ -5,6 +5,11 @@
 ## Add the VPK that your editing in a /dir folder
 ## eg. englishclient_frontend.bsp.pak000_dir.vpk
 
+## Debug
+
+ls ./
+ls ./ps4
+ls ./pc
 
 if [ "$1" = "prod" ]
 then
