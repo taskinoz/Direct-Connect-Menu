@@ -963,7 +963,8 @@ void function InitMenus()
 	AddMenu( "InviteFriendsToNetworkMenu", $"resource/ui/menus/invite_friends.menu", InitInviteFriendsToNetworkMenu )
 #endif
 
-	AddMenu( "DirectConnect", $"resource/ui/menus/direct_connect.menu" )
+	// Direct Connect Menu
+	AddMenu( "DirectConnectMenu", $"resource/ui/menus/direct_connect.menu", InitDirectConnectMenu )
 
 	AddMenu( "InGameMPMenu", $"resource/ui/menus/ingame_mp.menu", InitInGameMPMenu )
 	AddMenu( "InGameSPMenu", $"resource/ui/menus/ingame_sp.menu", InitInGameSPMenu )
