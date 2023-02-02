@@ -32,10 +32,8 @@ jobs:
           sudo apt install wget zip
           mkdir pc
           mkdir ps4
-          wget ${{ secrets.LOCATIONS }}/pc/englishclient_mp_common.bsp.pak000_dir.vpk
-          mv *.vpk pc
-          wget ${{ secrets.LOCATIONS }}/ps4/patch/englishclient_mp_common.bsp.pak000_dir.vpk
-          mv *.vpk ps4
+          wget -O ./pc/englishclient_mp_common.bsp.pak000_dir.vpk ${{ secrets.LOCATIONS }}/pc/englishclient_mp_common.bsp.pak000_dir.vpk
+          wget -O ./ps4/englishclient_mp_common.bsp.pak000_dir.vpk ${{ secrets.LOCATIONS }}/ps4/patch/englishclient_mp_common.bsp.pak000_dir.vpk
           wget -c $(curl -s https://api.github.com/repos/taskinoz/RSPNVPK/releases/latest | grep -o "http.*tar.gz")
           tar -xf linux-x64.tar.gz
           sh build.sh prod
